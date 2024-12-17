@@ -6,23 +6,23 @@ function ProductsMain({ data }) {
   const [imagePaths, setImagePaths] = useState({});
   const navigate = useNavigate();
 
-  // Step 1: Use import.meta.glob to dynamically import all images
+  // Step 1: Use import.meta.glob to dynamically load images
   useEffect(() => {
     const images = import.meta.glob('/src/assets/img/mehsullar/*.{png,jpg,jpeg,webp}');
-    
+
     const loadImages = async () => {
-      const loadedImages = {};
+      const resolvedImages = {};
       for (const path in images) {
-        const fileName = path.split('/').pop(); // Extract the file name
-        loadedImages[fileName] = (await images[path]()).default; // Await the module and access the default export
+        const fileName = path.split('/').pop(); // Extract filename
+        const module = await images[path](); // Resolve the module
+        resolvedImages[fileName] = module.default; // Default export contains the image URL
       }
-      setImagePaths(loadedImages);
+      setImagePaths(resolvedImages);
     };
 
     loadImages();
   }, []);
 
-  // Filter data to show visible cards
   const visibleData = data.flatMap((item) => item.cards).slice(0, visibleCount);
   const hasMore = visibleCount < data.flatMap((item) => item.cards).length;
 
