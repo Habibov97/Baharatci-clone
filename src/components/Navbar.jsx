@@ -9,6 +9,7 @@ import { LuShoppingCart } from "react-icons/lu";
 import { MdKeyboardArrowRight, MdKeyboardArrowDown } from "react-icons/md";
 import { useEffect, useState } from "react";
 import Loader from '../components/Loader'; 
+import logo from '../assets/img/baharat-logo.webp';
 
 function Navbar({ data }) {
   const [isSticky, setIsSticky] = useState(false);
@@ -72,7 +73,7 @@ function Navbar({ data }) {
 
       <div className={`navbar ${isSticky ? 'sticky' : ''}`}>
         <div onClick={() => handleNavigate('/')} className="logo">
-          <img src="/src/assets/img/baharat-logo.webp" alt="logo" />
+          <img src={logo} alt="logo" />
         </div>
         <ul className="nav-items">
           <li onClick={() => handleNavigate('/')}>Ana səhifə</li>
