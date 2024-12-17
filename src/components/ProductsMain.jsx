@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Loader from './Loader';
+import { LoadingOutlined } from '@ant-design/icons';
+
 
 function ProductsMain({ data }) {
   const [visibleCount, setVisibleCount] = useState(14);
@@ -39,7 +40,7 @@ function ProductsMain({ data }) {
             {imagePaths[card.img] ? (
               <img src={imagePaths[card.img]} alt={card.name} />
             ) : (
-              <Loader/>
+              <Spin indicator={<LoadingOutlined style={{ fontSize: 36, color: 'orange' }} spin />} />
             )}
           </div>
           <div className="card-product-details">
