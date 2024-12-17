@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Loader from './Loader';
 
 function ProductsMain({ data }) {
   const [visibleCount, setVisibleCount] = useState(14);
@@ -38,7 +39,7 @@ function ProductsMain({ data }) {
             {imagePaths[card.img] ? (
               <img src={imagePaths[card.img]} alt={card.name} />
             ) : (
-              <p>Loading...</p>
+              <Loader/>
             )}
           </div>
           <div className="card-product-details">
