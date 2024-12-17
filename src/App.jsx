@@ -3,7 +3,7 @@ import data from './services/data.js'
 import { moreSellers, discountedProducts } from './services/data.js';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import { ToastContainer, toast, Flip } from 'react-toastify';
-import RouterConfig from './router/routerConfig.jsx';
+import RouterConfig from './router/routes.jsx';
 
 export const BaharatContext =  createContext()
 export const  MoreSellersContext = createContext()
