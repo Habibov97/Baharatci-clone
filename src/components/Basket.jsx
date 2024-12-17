@@ -1,8 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { decrease, increase, removeFromBasket, toggleProductCheck } from '../slices/basketSlice';
+import {
+  decrease,
+  increase,
+  removeFromBasket,
+  toggleProductCheck,
+} from '../slices/basketSlice';
 import { Empty, Typography, Checkbox } from 'antd';
 
 function Basket() {
+  const [imagePaths, setImagePaths] = useState({});
   const { products } = useSelector((state) => state.basket);
   const { token, coupon } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -11,8 +17,26 @@ function Basket() {
     dispatch(toggleProductCheck({ id }));
   };
 
+  // Step 1: Dynamically load images from the folder
+  useEffect(() => {
+    const images = import.meta.glob(
+      '/src/assets/img/mehsullar/*.{png,jpg,jpeg,webp}'
+    );
+    const loadImages = async () => {
+      const resolvedImages = {};
+      for (const path in images) {
+        const fileName = path.split('/').pop();
+        const module = await images[path]();
+        resolvedImages[fileName] = module.default; // Resolve image URL
+      }
+      setImagePaths(resolvedImages);
+    };
+
+    loadImages();
+  }, []);
+
   function formatWeight(quantity) {
-    const weightInGrams = quantity * 100; 
+    const weightInGrams = quantity * 100;
     if (weightInGrams >= 1000) {
       return `${(weightInGrams / 1000).toFixed(1)} kg`;
     }
@@ -24,20 +48,22 @@ function Basket() {
       {products.length > 0 ? (
         products.map((product, i) => {
           const originalPrice = parseFloat(product.price) * product.quantity;
-          const discountPrice = coupon === 'baharatci10' && token
-            ? (originalPrice - originalPrice * 0.1).toFixed(2)
-            : originalPrice.toFixed(2);
+          const discountPrice =
+            coupon === 'baharatci10' && token
+              ? (originalPrice - originalPrice * 0.1).toFixed(2)
+              : originalPrice.toFixed(2);
 
           return (
             <div key={i} className="CartProduct">
-              <div className="CartProduct-Select">      
+              <div className="CartProduct-Select">
                 <div className="UCheckbox">
                   <label className="UCheckbox-Label">
-                  <Checkbox className="UCheckbox-Input" 
-                    disabled={products.length === 0} 
-                    checked={product.checked} 
-                    onChange={() => handleProductCheck(product.id)}>
-                  </Checkbox>
+                    <Checkbox
+                      className="UCheckbox-Input"
+                      disabled={products.length === 0}
+                      checked={product.checked}
+                      onChange={() => handleProductCheck(product.id)}
+                    ></Checkbox>
 
                     {/* <input
                       type="checkbox"
@@ -50,7 +76,11 @@ function Basket() {
                 </div>
               </div>
               <div className="CartProduct-Image">
-                <img src={`/src/assets/img/mehsullar/${product.img}`} alt={product.name} />
+                {imagePaths[product.img] ? (
+                  <img src={imagePaths[product.img]} alt={product.name} />
+                ) : (
+                  <p>Loading...</p>
+                )}
               </div>
 
               <div className="CartProduct-Descriptions">
@@ -59,14 +89,30 @@ function Basket() {
                     <div className="Discount-CashBack">-10%</div>
                   )}
                   <div className="Title">
-                    <h4>{product.name} ({formatWeight(product.quantity)})</h4>
-                    <p style={{ fontSize: '.7rem' }}> Məhsulun kateqoriyası : {product.category} </p>
+                    <h4>
+                      {product.name} ({formatWeight(product.quantity)})
+                    </h4>
+                    <p style={{ fontSize: '.7rem' }}>
+                      {' '}
+                      Məhsulun kateqoriyası : {product.category}{' '}
+                    </p>
                   </div>
                   <div className="PriceBasket">
                     {coupon === 'baharatci10' && token && (
-                      <span><b>{discountPrice} ₼</b></span>
+                      <span>
+                        <b>{discountPrice} ₼</b>
+                      </span>
                     )}
-                    <span style={coupon === 'baharatci10' && token ? { textDecoration: 'line-through', color: 'rgb(148, 151, 173)' } : {}}>
+                    <span
+                      style={
+                        coupon === 'baharatci10' && token
+                          ? {
+                              textDecoration: 'line-through',
+                              color: 'rgb(148, 151, 173)',
+                            }
+                          : {}
+                      }
+                    >
                       {originalPrice.toFixed(2)} ₼
                     </span>
                   </div>
@@ -75,14 +121,41 @@ function Basket() {
                 <div className="Quantity">
                   <div className="ProductQuantity">
                     <div className="quantityButtons">
-                      <button className="ProductQuantity-Minus" onClick={() => dispatch(decrease({ id: product.id }))}> - </button>
-                      <input type="text" value={product.quantity} min="1" max="20" step="1" readOnly autoComplete="off" className="ProductQuantity-Input" />
-                      <button className="ProductQuantity-Plus" onClick={() => dispatch(increase({ id: product.id }))}> + </button>
+                      <button
+                        className="ProductQuantity-Minus"
+                        onClick={() => dispatch(decrease({ id: product.id }))}
+                      >
+                        {' '}
+                        -{' '}
+                      </button>
+                      <input
+                        type="text"
+                        value={product.quantity}
+                        min="1"
+                        max="20"
+                        step="1"
+                        readOnly
+                        autoComplete="off"
+                        className="ProductQuantity-Input"
+                      />
+                      <button
+                        className="ProductQuantity-Plus"
+                        onClick={() => dispatch(increase({ id: product.id }))}
+                      >
+                        {' '}
+                        +{' '}
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="Remove" onClick={() => dispatch(removeFromBasket({ id: product.id }))}> ✖ </div>
+              <div
+                className="Remove"
+                onClick={() => dispatch(removeFromBasket({ id: product.id }))}
+              >
+                {' '}
+                ✖{' '}
+              </div>
             </div>
           );
         })

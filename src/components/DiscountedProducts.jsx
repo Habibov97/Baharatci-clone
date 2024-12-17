@@ -13,6 +13,23 @@ function DiscountedProducts() {
 
     const data = useContext(DiscountedProductsContext);
     const navigate = useNavigate()
+    const [imagePaths, setImagePaths] = useState({});
+
+    useEffect(() => {
+        const images = import.meta.glob('/src/assets/img/mehsullar/*.{png,jpg,jpeg,webp}');
+
+        const loadImages = async () => {
+            const resolvedImages = {};
+            for (const path in images) {
+                const fileName = path.split('/').pop();
+                const module = await images[path]();
+                resolvedImages[fileName] = module.default;
+            }
+            setImagePaths(resolvedImages);
+        };
+
+        loadImages();
+    }, []);
  
     return (
         <>
@@ -49,9 +66,13 @@ function DiscountedProducts() {
                 {data && data.map((item, i) => (
                     <SwiperSlide key={i}>
                         <div className="discounted-product">
-                            <div className='discounted-img'>
-                                <img src={`./src/assets/img/mehsullar/${item.img}`} alt={item.name} />
-                            </div>
+                            <div className="discounted-img">
+                                            {imagePaths[item.img] ? (
+                                                <img src={imagePaths[item.img]} alt={item.name} />
+                                            ) : (
+                                                <p>Loading...</p>
+                                            )}
+                                        </div>
                             <div>
                                 <p>{item.name}</p>
                                 <p>{item.about}</p>
