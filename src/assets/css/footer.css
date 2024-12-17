@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+.footer-container{
+    background-color: #285E28;
+    padding: 20px;
+    
+}
+
+
+.footer-row{
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.foot-column1 {
+    display: flex;
+    flex-direction: column;
+    background: url("../img/shape-6.webp") center/cover;
+    width: 100%;
+    font-family: "Lato", sans-serif;
+}
+
+.foot-image{
+    padding-top: 25px;
+    max-width: 350px;
+    margin: auto;
+}
+
+.foot-image img {
+    width: 100%;
+}
+
+.foot-tebii{
+    padding-left: 40px;
+    font-size: clamp(.9rem, 0.2043rem + 1.4783vw, 1.1rem) ;
+    color: #fff;
+    padding-bottom: 25px;
+}
+
+.foot-phone, .foot-location{
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    gap: 15px;
+    padding-bottom: 15px;
+    color: #fff;
+}
+
+.foot-location {
+    padding-bottom: 35px;
+}
+
+.foot-phone .phon,  .foot-location .loca {
+    width: 20px;
+    height: 20px;
+    padding-top: 5px;
+}
+
+.foot-location p:nth-child(1), .foot-phone p:nth-child(1){
+    background-color: #659833;
+    padding: 10px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.foot-location p:nth-child(2), .foot-phone p:nth-child(2){
+    font-size: clamp(.9rem, 0.2043rem + 1.4783vw, 1.1rem) ;
+} 
+
+
+.foot-column2, .foot-column3 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.foot-category, .foot-followUs-head {
+    display: flex;
+    justify-content: flex-start;
+    font-size: clamp(1.4rem, 0.3043rem + 1.8783vw, 1.7rem) ;
+    color: #fff;
+    padding: 30px 0;
+    font-family: "Lato", sans-serif;
+    position: relative;
+}
+
+.foot-category:before, .foot-followUs-head:before {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 38px;
+    left: 0px;
+    bottom: 3px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #529d20 0%, #00e93e 100%);
+    top: 62px;
+}
+
+.foot-categories ul li {
+    font-size: clamp(1.1rem, 0.3043rem + 1.8783vw, 1.7rem) ;
+    color: #fff;
+    padding: 5px 0;
+    font-family: "Lato", sans-serif;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+}
+
+.foot-categories ul li:hover {
+    color: #6ab04c;
+    transition: all 0.3s ease-in-out;
+    border-color: #6ab04c;
+    width: 35%;
+}
+
+.foot-followUs {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.foot-followUs p {
+    padding: 8px;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.foot-followUs p:hover {
+    border-color: #659833;
+    background-color: #fff;
+    color: #659833;
+}
+
+
+@media only screen and (min-width: 620px) {
+    .footer-row {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 50px;
+    }
+   
+    .foot-location p:nth-child(1), .foot-phone p:nth-child(1){
+        padding: 10px;
+    }
+
+    .foot-category, .foot-followUs-head {
+        font-size: 1.3em;
+        position: relative;
+        padding-bottom: 20px;
+    }
+
+    .foot-category:before, .foot-followUs-head:before {
+        content: "";
+        position: absolute;
+        height: 4px;
+        width: 38px;
+        left: 0px;
+        bottom: 3px;
+        border-radius: 5px;
+        background: linear-gradient(to right, #529d20 0%, #00e93e 100%);
+        top: 60px;
+    }
+
+    .foot-categories{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .foot-categories ul li {
+        font-size: 1.1em;
+    }
+
+    .foot-categories ul li:hover {
+        width: 100%;
+     }
+
+    .foot-tebii{
+        padding-left: 20px;
+    }
+    
+    .foot-phone, .foot-location{
+        padding-left: 20px;
+        gap: 15px;
+        padding-bottom: 15px;
+
+    }
+    
+    .foot-location {
+        padding-bottom: 35px;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .foot-categories{
+        display: flex;
+        flex-direction: row;
+        gap: 70px;
+    }
+
+ }
+

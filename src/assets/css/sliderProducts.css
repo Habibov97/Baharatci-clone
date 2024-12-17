@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+.discounted-swiper, .mostSellers-swiper {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto; 
+    padding: 30px 20px; 
+}
+
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.discounted-product, .mostSeller-product {
+    border: 2px solid #6ab04c;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    background-color: white;
+    width: 277px;
+}
+
+.discounted-product:hover, .mostSeller-product:hover {
+    /* background-color: rgba(0, 0, 0, 0.1);  */
+    background-color: #fff;
+
+}
+
+.discounted-img, .mostSeller-img {
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease-in-out;
+}
+
+.discounted-img img, .mostSeller-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    transform: scale(1.1);
+    overflow: hidden;
+}
+
+
+.discounted-img:hover img, .mostSeller-img:hover img {
+    background-color: #fff;
+}
+
+
+.discounted-product:hover .discounted-img, .mostSeller-product:hover .mostSeller-img {
+    opacity: 0.4;
+}
+
+.discounted-product > div, .mostSeller-product > div  {
+    padding: 8px;
+}
+
+.discounted-product p:nth-child(1), .mostSeller-product p:nth-child(1) {
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    color: #333;
+    font-family: "Advent Pro", sans-serif;
+    font-weight: bold;
+}
+
+.discounted-product p:nth-child(2), .mostSeller-product p:nth-child(2),
+.discounted-product p:nth-child(3), .mostSeller-product p:nth-child(3) {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #333;
+    font-family: "Advent Pro", sans-serif;
+    font-weight: 500;
+}
+.discounted-product p:nth-child(3), .mostSeller-product p:nth-child(3) {
+    color: #76a713;
+}
+
+.discounted-product:hover p, .mostSeller-product:hover p {
+    opacity: .5;
+}
+
+.discounted-product button, .mostSeller-product button {
+    position: absolute;
+    bottom: 50%; 
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0; 
+    padding: 12px 25px;
+    font-size: .9em;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(45deg, #FF512F 15%, #F09819  71%, #FF512F  100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    z-index: 65;
+  }
+  
+  
+  .discounted-product:hover button, .mostSeller-product:hover button  {
+      background-position: right center;
+      /* change the direction of the change here */
+      color: #fff;
+      text-decoration: none;
+      bottom: 40%; 
+      transform: translate(-50%, 0); 
+      opacity: 1; 
+      filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
+  }
+  
+  .discounted-product:active button, .mostSeller-product:active button  {
+      background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+      transform: scale(0.9);
+      transform: translate(-50%, 0); 
+      transform: all 3s;
+  
+  }
+
+.discounted-header, .mostSeller-header {
+    text-align: center;
+    font-size: clamp(2rem, 0.3043rem + 2.4783vw, 3.5rem) ;
+    padding: 15px 0 5px 0;
+    font-family: "Amatic SC", cursive;
+    font-weight: bold;
+    color:#6ab04c;
+    padding: 35px 0
+}
+
+
+@media (min-width: 620px) {
+    
+    .swiper {
+        padding: 20px 0;
+    }
+
+    .swiper-slide {
+        padding: 15px;
+    }
+
+    .discounted-product,  .mostSeller-product {
+        width: 477px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .discounted-product p, .mostSeller-product p {
+        font-size: 1.05em;
+    }
+
+    .swiper {
+        /* Adjust the slides per view */
+        --swiper-slides-per-view: 2; /* Show 2 slides */
+        --swiper-space-between: 20px; /* 20px between slides */
+    }
+
+    
+}
