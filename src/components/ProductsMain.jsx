@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import images from '../assets/img/mehsullar';
 
 function ProductsMain({ data }) {
     const [visibleCount, setVisibleCount] = useState(14);
@@ -18,7 +19,7 @@ function ProductsMain({ data }) {
                 <div key={i}  className="card-product">
                   <div className='card-product-img'>
                     <img
-                      src={`./src/assets/img/mehsullar/${card.img}`}
+                      src={`${images}/${card.img}`}
                       alt={card.name}
                     />
                   </div>

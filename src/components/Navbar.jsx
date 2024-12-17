@@ -130,7 +130,7 @@ function Navbar({ data }) {
         <div id="hamburger" className={`ham-menu ${isOpen ? 'open' : ''}`}>
           <div className="ham-logo">
             <IoMdCloseCircle onClick={() => dispatch(toggleMenu())} className="ham-close-btn" />
-            <img src="/src/assets/img/baharat-logo.webp" alt="logo" />
+            <img src={logo} alt="logo" />
           </div>
           <ul className="ham-nav-items">
             <div>
