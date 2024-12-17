@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { BaharatContext } from '../App';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { IoIosSearch } from 'react-icons/io';
 
 function Spices() {
+  const [imagePaths, setImagePaths] = useState({});
   const data = useContext(BaharatContext);
   const navigate = useNavigate();
 

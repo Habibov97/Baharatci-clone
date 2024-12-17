@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { BaharatContext } from '../App';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { IoIosSearch } from 'react-icons/io';
 function NaturalOils() {
+  const [imagePaths, setImagePaths] = useState({});
   const data = useContext(BaharatContext);
   const navigate = useNavigate();
 

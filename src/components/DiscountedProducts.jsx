@@ -1,5 +1,5 @@
 import { Pagination, Autoplay } from 'swiper/modules';
-import React, { useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import '../assets/css/sliderProducts.css';
 import 'swiper/css';
