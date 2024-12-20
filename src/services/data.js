@@ -156,17 +156,17 @@ const data = [
   
         { id: 22, img: "Ananas.png", name: "Ananas qurusu ", about: "100qr ", price: "2₼",  category: "Meyvə qurusu" },
   
-        { id: 23, img: "əncir.png", name: "Əncir qurusu", about: "100qr", price: " 2.50₼  ",  category: "Meyvə qurusu"  },
+        //{ id: 23, img: "əncir.png", name: "Əncir qurusu", about: "100qr", price: " 2.50₼  ",  category: "Meyvə qurusu"  },
         { id: 24, img: "Kivi.jpg", name: "Kivi qurusu", about: "  100qr", price: "  1.50₼ ",  category: "Meyvə qurusu"  },
   
         { id: 25, img: "Manqo.png", name: "Manqo qurusu", about: " 100qr ", price: " 1.80₼  ",  category: "Meyvə qurusu"  },
   
-        { id: 26, img: "qaraKişmiş.png", name: " Qara kişmiş ", about: "100qr ", price: " 2.50₼  ",  category: "Meyvə qurusu"  },
+        //{ id: 26, img: "qaraKişmiş.png", name: " Qara kişmiş ", about: "100qr ", price: " 2.50₼  ",  category: "Meyvə qurusu"  },
   
-        { id: 27, img: "qaraQaysı.png", name: "Qara Qayısı  ", about: "100qr ", price: " 3₼",  category: "Meyvə qurusu"  },
+        //{ id: 27, img: "qaraQaysı.png", name: "Qara Qayısı  ", about: "100qr ", price: " 3₼",  category: "Meyvə qurusu"  },
         { id: 28, img: "sariKismis.png", name: " Sarı kişmiş ", about: "100qr", price: " 1₼  ",  category: "Meyvə qurusu"  },
   
-        { id: 29, img: "sarıQaysı.png", name: "Sarı qayısı  ", about: "100qr", price: " 2.50₼  ",  category: "Meyvə qurusu"  },
+        //{ id: 29, img: "sarıQaysı.png", name: "Sarı qayısı  ", about: "100qr", price: " 2.50₼  ",  category: "Meyvə qurusu"  },
   
         { id: 30, img: "Tut.webp", name: "Tut qurusu", about: "100qr", price: " 1₼",  category: "Meyvə qurusu"  },
         { id: 31, img: "agtut.webp", name: "Ağ Tut qurusu", about: "100qr", price: " 1.20₼",  category: "Meyvə qurusu"  },            /// 3 
@@ -228,11 +228,12 @@ const data = [
   const moreSellers = [
     { id: 36, img: "qizilgul.webp", name: "Qızılgül", about: "100 qr", price: " 3₼  ", category: "Təbii otlar" },
     { id: 40, img: "zeytun.webp", name: "Zeytun yağı", about: "100 qr", price: " 1₼  ", category: "Təbii yağlar" },
-    { id: 23, img: "əncir.png", name: "Əncir qurusu", about: "100qr", price: " 2.50₼  ", category: "Meyvə qurusu" },
-    { id: 26, img: "qaraKişmiş.png", name: " Qara kişmiş ", about: "100qr ", price: " 2.50₼  ", category: "Meyvə qurusu" },
+    //{ id: 23, img: "əncir.png", name: "Əncir qurusu", about: "100qr", price: " 2.50₼  ", category: "Meyvə qurusu" },
+    //{ id: 26, img: "qaraKişmiş.png", name: " Qara kişmiş ", about: "100qr ", price: " 2.50₼  ", category: "Meyvə qurusu" },
     { id: 18, img: "qarisiq.webp", name: "Qarışıq ləpə", about: "100qr ", price: "2₼ ", category: "Çərəzlər" },
     { id: 2, img: "mixek.webp", name: "Mixək", about: "Üyüdülmüş 100qr", price: "4₼", category: "Baharatlar" },
     { id: 12, img: "findiq.webp", name: "Fındıq ", about: "100 qr ", price: "2.30₼  ", category: "Çərəzlər" },
+    { id: 50, img: "qatisud.png", name: "Qatılaşdırılmış süd bişmiş", about: "500 qr", price: " 3₼", category: "Tort məhsulları" },
   ];
 
 
